@@ -1,0 +1,11 @@
+services:
+    my-http-listener:
+        image: mendhak/http-https-echo:35
+        environment:
+            - HTTP_PORT=8888
+            - HTTPS_PORT=9999
+            - EXTERNAL_HTTP_PORT=${EXTERNAL_HTTP_PORT}
+            - EXTERNAL_HTTPS_PORT=${EXTERNAL_HTTPS_PORT}
+        ports:
+            - "${EXTERNAL_HTTP_PORT}:8888"
+            - "${EXTERNAL_HTTPS_PORT}:9999"
